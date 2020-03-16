@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Appchart</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <head>
+    <script type="text/javascript">
+        window.onload = function() {
+            var dps = []; //dataPoints. 
+  
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "PREVIEW"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+  
+            function addDataPointsAndRender() {
+              console.log("running function")
+                xValue = Number(document.getElementById("xValue").value);
+                yValue = Number(document.getElementById("yValue").value);
+                dps.push({
+                    x: xValue,
+                    y: yValue
+                });
+                chart.render();
+            }
+            
+            var renderButton = document.getElementById("renderButton");
+            var renderInput1 = document.getElementById("xValue");
+            var renderInput2 = document.getElementById("yValue");
+  
+  
+            renderButton.addEventListener("click", addDataPointsAndRender);
+            // renderInput1.addEventListener("change", addDataPointsAndRender);
+            // renderInput2.addEventListener("change", addDataPointsAndRender);
+  
+  
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ChartProject</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <app-root></app-root>
+    <div>
+        <!DOCTYPE HTML>
+        <html>
+
+        <head>
+            <script type="text/javascript">
+                window.onload = function() {
+                    var dps = []; //dataPoints. 
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        title: {
+                            text: "Accepting DataPoints from User Input"
+                        },
+                        data: [{
+                            type: "line",
+                            dataPoints: dps
+                        }]
+                    });
+
+                    function addDataPointsAndRender() {
+                        xValue = Number(document.getElementById("xValue").value);
+                        yValue = Number(document.getElementById("yValue").value);
+                        wValue = Number(document.getElementById("wValue").value);
+                        hValue = Number(document.getElementById("hValue").value);
+                        dps.push({
+                            x: xValue,
+                            y: yValue,
+                            w: wValue,
+                            h: hValue
+                        });
+                        chart.render();
+                    }
+
+                    var renderButton = document.getElementById("renderButton");
+                    renderButton.addEventListener("click", addDataPointsAndRender);
+                }
+            </script>
+            <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </head>
+
+        <body>
+            X Cordinate:
+            <input id="xValue" type="number" step="any" placeholder="Enter X-Value"> <br><br>Y Cordinate:
+            <input id="yValue" type="number" step="any" placeholder="Enter Y-Value"> <br><br>Width:
+            <input id="wValue" type="number" step="any" placeholder="Enter width"><br> <br>Height:
+            <input id="hValue" type="number" step="any" placeholder="Enter Height"><br><br>
+            <button id="renderButton">Add DataPoint & Preview</button>
+
+            <div id="chartContainer">
+            </div>
+
+        </body>
+
+        </html>
+    </div>
+</body>
+
+</html>

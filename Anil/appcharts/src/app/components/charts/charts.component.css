@@ -1,0 +1,13 @@
+.mycontainer {
+    height:50px;
+    background-color: rgb(240, 63, 63);
+}
+.myrow {
+    padding: 40px;background-color: #e8ecf0;margin:0 !important
+}
+.mycol {
+    background-color: white; padding:10px
+}
+.mylabel {
+    font-weight: bold;color:grey;font-size: 14px;
+}
